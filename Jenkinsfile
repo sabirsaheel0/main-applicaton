@@ -33,7 +33,7 @@ pipeline {
         }
         stage('Clean Docker Images'){
             steps{
-                sh 'docker rmi ${DOCKERHUB_USERNAME}/${DOCKERHUB_REPO_NAME}:${BUILD_NUMBER}'
+                sh 'docker rmi ${DOCKERHUB_USERNAME}/${DOCKERHUB_REPO_NAME}:${IMAGE_TAG}'
             }
         }
     }
