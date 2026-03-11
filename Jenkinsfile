@@ -29,6 +29,11 @@ pipeline {
                 sh 'docker rmi ${DOCKERHUB_USERNAME}/${DOCKERHUB_REPO_NAME}:${IMAGE_TAG}'
             }
         }
+        stage('Trigger Next Pipeline') {
+            steps{
+                build job: 'config-pipeline', parameters: [string(name: 'IMAGE_TAG', value: "${IMAGE_TAG}")]
+            }
+        }
         stage('CLEANING WORKSPACE') {
             steps{
                 script{
