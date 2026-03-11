@@ -7,7 +7,15 @@ pipeline {
         DOCKERHUB_REPO_NAME = "jenkinstest"
     }
 
+
     stages {
+        stage('CLEANING WORKSPACE') {
+            steps{
+                script{
+                    cleanWs()
+                }
+            }
+        }
         stage('BUILD DOCKER IMAGE') {
             steps {
                 echo 'Building docker image'
