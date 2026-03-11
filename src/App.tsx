@@ -26,7 +26,7 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-        This is version 2
+        This is version 3
       </p>
     </>
   )
