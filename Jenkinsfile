@@ -9,13 +9,6 @@ pipeline {
 
 
     stages {
-        stage('CLEANING WORKSPACE') {
-            steps{
-                script{
-                    cleanWs()
-                }
-            }
-        }
         stage('BUILD DOCKER IMAGE') {
             steps {
                 echo 'Building docker image'
@@ -34,6 +27,13 @@ pipeline {
         stage('Clean Docker Images'){
             steps{
                 sh 'docker rmi ${DOCKERHUB_USERNAME}/${DOCKERHUB_REPO_NAME}:${IMAGE_TAG}'
+            }
+        }
+        stage('CLEANING WORKSPACE') {
+            steps{
+                script{
+                    cleanWs()
+                }
             }
         }
     }
